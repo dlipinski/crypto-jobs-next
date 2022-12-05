@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Card, Grid, Spacer, Text, Link } from '@nextui-org/react'
 import { Calendar, Paper, Show } from 'react-iconly'
 import MySmall from './ui/my-small'
-import { IApplication } from '../models/application'
 import { IJob } from '../models/job'
 interface JobProps {
 	_id: IJob['_id']
