@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 	const user1: IUser = new User({ address: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F' })
 	const user2: IUser = new User({ address: '0x267be1C1D684F78cb4F6a176C4911b741E4Ffdc0' })
-	const userMe: IUser = new User({ address: '0x3D17B58130a84431ac9115A2aF7756B6774241e5' })
+	// const userMe: IUser = new User({ address: '0x3D17B58130a84431ac9115A2aF7756B6774241e5' })
 
 	for (let i = 0; i < 1000; i++) {
 		console.log(`PROGRESS: ${i}/${1000}`)

@@ -1,7 +1,4 @@
-import { redirect } from 'next/navigation'
+import React from 'react'
 
-const Index = () =>{
-	redirect('/jobs')
-}
-
+const Index = () => <div></div>
 export default Index

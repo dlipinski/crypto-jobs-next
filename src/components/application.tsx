@@ -10,7 +10,7 @@ interface ApplicationProps {
 	createdAt: IApplication['createdAt']
 }
 
-const Application = ({ description, salary, createdAt, estimatedDays }: ApplicationProps) =>
+const Application = ({ description, salary, createdAt }: ApplicationProps) =>
 	<Card>
 		<Card.Body>
 			<div style={{ padding: '16px' }}>

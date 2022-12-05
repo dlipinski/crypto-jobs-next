@@ -13,7 +13,7 @@ declare global {
 
 
 const SignInButton = () => {
-	const { accessToken, signIn, signOut } = useAuth()
+	const { accessToken, signIn } = useAuth()
 	const dispatch = useAppDispatch()
 	const onSignIn = async () => {
 		const accounts = await window.ethereum.request({
@@ -27,9 +27,10 @@ const SignInButton = () => {
 		})
 		dispatch(signIn({ message, signedMessage }))
 	}
-	const onSignOut = () => {
+
+	/*const onSignOut = () => {
 		dispatch(signOut())
-	}
+	}*/
 
 	if (accessToken) {
 		return (

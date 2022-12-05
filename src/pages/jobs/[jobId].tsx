@@ -40,7 +40,7 @@ const JobId = ({ job }: { job: IJob }) =>
 
 export default JobId
 
-export async function getServerSideProps(req, res) {
+export async function getServerSideProps(req) {
 	const { jobId } = req.query
 	const response = await axios.get(`http://localhost:3000/api/jobs/${jobId}`)
 	const job = response.data.data

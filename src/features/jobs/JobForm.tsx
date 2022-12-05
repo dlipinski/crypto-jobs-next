@@ -10,7 +10,7 @@ const JobForm = () => {
 	const [ title, setTitle ] = useState('')
 	const [ description, setDescription ] = useState('')
 	const [ budget, setBudget ] = useState('')
-	const [ category, setCategory ] = useState('IT')
+	const [ category ] = useState('IT')
 	const dispatch = useAppDispatch()
 	const { createJob, creating } = useJobs()
 	const { accessToken } = useAuth()

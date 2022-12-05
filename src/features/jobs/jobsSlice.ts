@@ -59,7 +59,7 @@ export const jobsSlice = createSlice({
 			.addCase(createJob.pending, (state) => {
 				state.creating = true
 			})
-			.addCase(createJob.fulfilled, (state, action) => {
+			.addCase(createJob.fulfilled, (state) => {
 				state.creating = false
 			})
 			.addCase(createJob.rejected, (state) => {
