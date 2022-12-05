@@ -15,34 +15,41 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const user2: IUser = new User({ address: '0x267be1C1D684F78cb4F6a176C4911b741E4Ffdc0' })
 	// const userMe: IUser = new User({ address: '0x3D17B58130a84431ac9115A2aF7756B6774241e5' })
 
+	const jobs = []
+	const applications = []
 	for (let i = 0; i < 1000; i++) {
-		console.log(`PROGRESS: ${i}/${1000}`)
+		const viewsAmount = getRandomInt(30, 90)
 		const job: IJob = new Job({
 			budget: getRandomBudget(),
 			title: getRandomTitle(),
 			description: getRandomDescription(),
-			category: getRandomCategory()
+			category: getRandomCategory(),
+			views: viewsAmount
 		})
 		user1.jobs.push(job)
 		const applicationsAmount = getRandomInt(0, 40)
 		for (let j = 0; j < applicationsAmount; j++) {
-			console.log(`PROGRESS: ${i}/${100}, ${j}/${applicationsAmount}`)
 			const application: IApplication = new Application({
 				estimatedDays: getRandomInt(1, 30),
 				description: getRandomDescription(),
 				salary: getRandomBudget(),
-				job: job._id
+				job: job._id,
 			})
-			await application.save()
+			applications.push(application)
 			job.applications.push(application)
 			user2.applications.push(application)
 		}
-		await job.save()
+		jobs.push(job)
+		i % 10 === 0 && console.log(i)
 	}
+
+	await Job.collection.insertMany(jobs)
+	await Application.collection.insertMany(applications)
 
 	await user1.save()
 	await user2.save()
 
+	console.log('DONE')
 
 	res.status(200).json({ message: 'Ok.' })
 }

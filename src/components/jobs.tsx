@@ -8,11 +8,12 @@ interface JobsProps {
 }
 
 const Jobs = ({ jobs }: JobsProps) => (
-	<Grid.Container gap={2}>
+	<Grid.Container gap={2} style={{ padding: 0 }}>
 		{
 			jobs.map(job =>
-				<Grid key={job._id}>
+				<Grid xs={12} key={job._id}>
 					<Job
+						isListItem={true}
 						_id={job._id}
 						title={job.title}
 						description={job.description}
@@ -20,6 +21,7 @@ const Jobs = ({ jobs }: JobsProps) => (
 						category={job.category}
 						applications={job.applications}
 						createdAt={job.createdAt}
+						views={job.views}
 					/>
 				</Grid>
 			)

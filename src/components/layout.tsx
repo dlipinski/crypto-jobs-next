@@ -11,7 +11,7 @@ export default function Layout({ children }:LayoutProps) {
 
 			<Navbar />
 			<Spacer y={0.5}/>
-			<Container>{children}</Container>
+			<Container md>{children}</Container>
 		</>
 	)
 }

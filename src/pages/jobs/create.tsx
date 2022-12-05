@@ -7,7 +7,9 @@ import image from '../../assets/undraw_uploading_re_okvh(1).svg'
 const Create = () =>
 	<>
 		<Spacer y={1}/>
-		<Text h1>{'Post job offer '}<Text span color={'#777'}>{' for over '}{123} {'developers'}</Text></Text>
+		<Text h1>{'Post job offer '}<Text span css={{
+			textGradient: '45deg, $purple600 -20%, $pink600 100%',
+		}}>{' for over '}{123} {'developers'}</Text></Text>
 		<Spacer y={1}/>
 		<Grid.Container gap={2}>
 			<Grid xs={7}>

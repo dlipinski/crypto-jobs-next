@@ -17,11 +17,13 @@
     "jose": "^4.11.1",
     "mongoose": "^6.7.5",
     "next": "latest",
+    "next-themes": "^0.2.1",
     "react": "^18.0.26",
     "react-dom": "^18.0.26",
     "react-iconly": "^2.2.5",
     "react-redux": "^8.0.5",
-    "universal-cookie": "^4.0.4"
+    "universal-cookie": "^4.0.4",
+    "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.0.6",

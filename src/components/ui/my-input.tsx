@@ -8,8 +8,8 @@ const MyInput = (props: any) =>
 		{props.myLabel && <MySmall color={'text'}>{props.myLabel}</MySmall>}
 		{
 			props.textarea
-				? <Textarea {...props}/>
-				: <Input {...props}/>
+				? <Textarea {...props} bordered/>
+				: <Input {...props} bordered/>
 		}
 
 		{props.myDescription && <MySmall>{props.myDescription}</MySmall>}

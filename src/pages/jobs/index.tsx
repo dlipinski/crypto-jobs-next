@@ -2,7 +2,7 @@ import React from 'react'
 import Jobs from '../../components/jobs'
 import axios from 'axios'
 import { IJob } from '../../models/job'
-import { Grid, Pagination, Spacer, Text } from '@nextui-org/react'
+import { Grid, Pagination, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import Categories from '../../components/categories'
 import { GetJobsResponse } from '../api/jobs'
@@ -18,24 +18,26 @@ const Index = ({ jobs, categories, totalJobs }: IndexProps ) => {
 	const _page = parseInt(page as string) || 1
 
 	return (
-		<>
-			<Spacer y={1}/>
-			<Text h1>{'Find a job '}<Text span color={'#777'}>{' among '}{totalJobs} {'available'}</Text></Text>
-			<Grid.Container alignItems={'flex-start'} gap={2}>
-				<Grid xs={9} md={8} style={{ display: 'grid', gap: '12px', justifyItems: 'center' }}>
-					<Jobs jobs={jobs}/>
-					<Pagination
-						total={totalJobs/2}
-						page={_page}
-						size={'lg'}
-						animated={false}
-						onChange={page => push(`/jobs?page=${page}`)}/>
-				</Grid>
-				<Grid xs={3} md={4}>
-					<Categories categories={categories}/>
-				</Grid>
-			</Grid.Container>
-		</>
+		<Grid.Container alignItems={'flex-start'} gap={2}>
+			<Grid xs={12}>
+				<Text h1>{'Find a job '}<Text span css={{
+					textGradient: '45deg, $blue600 -20%, $pink600 50%',
+				}}>{' among '}{totalJobs} {'available'}</Text></Text>
+			</Grid>
+
+			<Grid xs={3} md={3}>
+				<Categories categories={categories}/>
+			</Grid>
+			<Grid xs={9} md={9} style={{ display: 'grid', gap: '12px', justifyItems: 'center' }}>
+				<Jobs jobs={jobs}/>
+				<Pagination
+					total={totalJobs/2}
+					page={_page}
+					size={'lg'}
+					animated={false}
+					onChange={page => push(`/jobs?page=${page}`)}/>
+			</Grid>
+		</Grid.Container>
 	)
 }
 

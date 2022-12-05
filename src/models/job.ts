@@ -8,6 +8,7 @@ export interface IJob extends Document {
 	category: string
 	applications: IApplication[]
 	createdAt: string
+	views: number
 }
 
 const jobSchema: Schema = new Schema({
@@ -42,7 +43,11 @@ const jobSchema: Schema = new Schema({
 			type: Schema.Types.ObjectId,
 			ref: 'Application'
 		}
-	]
+	],
+	views: {
+		type: Number,
+		default: 0
+	}
 }, { collection: 'jobs', timestamps: true })
 
 const Job: Model<IJob> = mongoose.models.Job || mongoose.model<IJob>('Job', jobSchema)
