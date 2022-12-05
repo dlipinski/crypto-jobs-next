@@ -19,7 +19,7 @@ const JobForm = () => {
 		dispatch(createJob({ accessToken, jobData: { title, description, budget: parseInt(budget), category } }))
 
 	return (
-		<Card>
+		<Card variant={'bordered'}>
 			<Card.Body>
 				<Grid.Container gap={2}>
 					<Grid xs={12} style={{ display: 'grid' }}>

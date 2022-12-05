@@ -20,7 +20,8 @@ const PER_PAGE = 10
 export default async function handler (req: NextApiRequest, res: NextApiResponse<GetJobsResponse>) {
 	try {
 		const { method, query } = req
-		const { page } = query
+		const { page, category } = query
+		console.log(' { page, category } ',  { page, category } )
 
 		await dbConnect()
 
@@ -28,7 +29,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
 
 		const _page = page ? parseInt(page.toString()) : 0
 
-		const jobs = await Job.find({},{}, { skip: _page * PER_PAGE, limit: PER_PAGE })
+		const jobFilter = category !== 'undefined' ? { category } : {}
+		const jobs = await Job.find(jobFilter,{}, { skip: _page * PER_PAGE, limit: PER_PAGE })
 		const categories = await Job.aggregate([
 			{ $group : { _id: '$category', count: { $sum:1 } } }
 		])

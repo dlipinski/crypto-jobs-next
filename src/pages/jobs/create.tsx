@@ -11,12 +11,13 @@ const Create = () =>
 			textGradient: '45deg, $purple600 -20%, $pink600 100%',
 		}}>{' for over '}{123} {'developers'}</Text></Text>
 		<Spacer y={1}/>
-		<Grid.Container gap={2}>
-			<Grid xs={7}>
-				<JobForm/>
-			</Grid>
+		<Grid.Container gap={3}>
+
 			<Grid xs={5}>
 				<Image src={image.src}/>
+			</Grid>
+			<Grid xs={7}>
+				<JobForm/>
 			</Grid>
 		</Grid.Container>
 

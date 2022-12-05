@@ -26,7 +26,7 @@ const Index = ({ jobs, categories, totalJobs }: IndexProps ) => {
 			</Grid>
 
 			<Grid xs={3} md={3}>
-				<Categories categories={categories}/>
+				<Categories categories={categories} totalCount={totalJobs}/>
 			</Grid>
 			<Grid xs={9} md={9} style={{ display: 'grid', gap: '12px', justifyItems: 'center' }}>
 				<Jobs jobs={jobs}/>
@@ -44,8 +44,8 @@ const Index = ({ jobs, categories, totalJobs }: IndexProps ) => {
 export default Index
 
 export async function getServerSideProps(req) {
-	const { page } = req.query
-	const response = await axios.get(`${process.env.HOST}/api/jobs?page=${page-1}`)
+	const { page, category } = req.query
+	const response = await axios.get(`${process.env.HOST}/api/jobs?page=${page-1}&category=${encodeURIComponent(category)}`)
 	const { data: { jobs, categories, totalJobs } }: GetJobsResponse = response.data
 	return { props: { jobs, categories, totalJobs } }
 }
