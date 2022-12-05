@@ -14,7 +14,7 @@ const Create = () =>
 		<Spacer y={1}/>
 		<Grid.Container gap={3}>
 			<Grid xs={5}>
-				<Image src={image.src}/>
+				<Image src={image.src} alt={'Creating job image'}/>
 			</Grid>
 			<Grid xs={7}>
 				<JobForm/>
