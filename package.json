@@ -7,7 +7,7 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "next lint",
-    "lint:fix": "next lint --fix --quiet"
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.10",

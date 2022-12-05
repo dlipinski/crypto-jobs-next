@@ -30,7 +30,7 @@ const Categories = ({ categories, totalCount }: CategoriesProps) =>
 					</Grid>
 					<Grid xs={12}>
 						<Badge variant="flat" content={totalCount} color={'primary'} size="xs">
-							<Link href={`/jobs`}>
+							<Link href={'/jobs'}>
 								<Button flat auto icon={icons[ 'All' ]}>{'All jobs'}</Button>
 							</Link>
 						</Badge>
