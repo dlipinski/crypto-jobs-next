@@ -43,7 +43,7 @@ export default Index
 
 export async function getServerSideProps(req) {
 	const { page } = req.query
-	const response = await axios.get(`http://localhost:3000/api/jobs?page=${page-1}`)
+	const response = await axios.get(`${process.env.HOST}/api/jobs?page=${page-1}`)
 	const { data: { jobs, categories, totalJobs } }: GetJobsResponse = response.data
 	return { props: { jobs, categories, totalJobs } }
 }
